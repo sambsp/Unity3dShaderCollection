@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myMaterial: {fileID: 2100000, guid: 29787fc36b8a6de44a06a226400b47f7, type: 2}
-  BlurRadius: 0.2
+  BlurRadius: 8.14
   downSample: 2
   iteration: 1
 --- !u!1 &1581752073

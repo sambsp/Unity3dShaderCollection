@@ -26,8 +26,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurRadius: 0.2
-    - _NeighbourDistance: 1
+    - _BlurRadius: 10
+    - _NeighbourDistance: 8.14
     - _Radius: 3.46
     m_Colors: []
   m_BuildTextureStacks: []
