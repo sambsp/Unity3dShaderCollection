@@ -3,7 +3,7 @@
 Scene: BoxFilter, BiRP worked. 
 
 两个地方可以看到效果：
-Camera上的后期，可以模糊
+Camera上的后期，可以模糊。比Image上的会多出DownSample的参数，可控的地方更多。
 Canvas下的Image上（这个要用效果需要注意不要被上面的后期同步控制，直接关闭后期看效果）
 
 ## Heatmap
