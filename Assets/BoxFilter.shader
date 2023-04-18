@@ -65,7 +65,49 @@ Shader "Unlit/BoxFilter"
             fixed4 frag(VertexOutput i) : SV_Target
             {
                 fixed4 color = fixed4(0, 0, 0, 0);
-            
+
+                // commented code is manually write pixel shader code for implementation of theory
+                //// 0, 1, 2
+                //// 3, 4, 5
+                //// 6, 7, 8
+
+                //float len = 3;
+                //// 4
+                //fixed2 targetUV = i.uv.xy;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 0
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(-1, -1) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 1
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(0, -1) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 2
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(1, -1) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 3
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(-1, 0) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 5
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(1, 0) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 6
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(-1, 1) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 7
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(0, 1) * len;
+                //color += tex2D(_MainTex, targetUV);
+
+                //// 8
+                //targetUV = i.uv.xy + _MainTex_TexelSize.xy * float2(1, 1) * len;
+                //color += tex2D(_MainTex, targetUV);
+
                 color += tex2D(_MainTex, i.uv.xy);
                 color += tex2D(_MainTex, i.uv1.xy);
                 color += tex2D(_MainTex, i.uv1.zw);
