@@ -52,7 +52,6 @@ Shader "Unlit/NewUnlitShader"
                 return float2x2(c, -s, s, c);
             }
 
-            // Output this function directly (default values only for reference).
             float GetAnimatedOrganicFractal(float scale, float scaleMultStep, float rotationStep, int iterations, float2 uv, float uvAnimationSpeed, float rippleStrength, float rippleMaxFrequency, float rippleSpeed, float brightness)
             {
                 // Remap to [-1.0, 1.0].
@@ -78,7 +77,7 @@ Shader "Unlit/NewUnlitShader"
 
                     float2 animatedUV = (uv * scale) + uvTime;
 
-                    q = animatedUV + ripples + i + n;
+                    q = animatedUV + i + n + ripples;
                     output += dot(cos(q) / scale, float2(1.0, 1.0) * brightness);
 
                     n -= sin(q);
@@ -89,10 +88,19 @@ Shader "Unlit/NewUnlitShader"
                 return output;
             }
 
-
             fixed4 frag(v2f i) : SV_Target
             {
-                float fractal = GetAnimatedOrganicFractal(6, 1.2, 5, 16, i.uv, 3.5, 0.9, 1.4, 5, 2);
+                float fractal = GetAnimatedOrganicFractal(6,   // scale
+                                                          1.2, // scaleMultStep 
+                                                          5,   // rotationStep 
+                                                          16,  // iterations
+                                                          i.uv,// uv 
+                                                          3.5, // uvAnimationSpeed
+                                                          0.9, // rippleStrength
+                                                          1.4, // rippleMaxFrequency
+                                                          5,   // rippleSpeed
+                                                          2    // brightness
+                                                         );
                 return fixed4(fractal, fractal, fractal, 1);
             }
             ENDCG
