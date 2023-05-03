@@ -122,16 +122,15 @@ Shader "Unlit/Pulse"
 
                 for (int i = 0; i < layers; i++)
                 {
-                    uv = mul(rotationMatrix, uv);
                     n = mul(rotationMatrix, n);
+                    uv = mul(rotationMatrix, uv);
 
                     float2 animatedUV = (uv * scale) + uvTime;
-
                     q = animatedUV + ripples + i + n;
+
                     output += dot(cos(q) / scale, float2(1.0, 1.0) * brightness);
 
                     n -= sin(q);
-
                     scale *= scaleMultStep;
                 }
 

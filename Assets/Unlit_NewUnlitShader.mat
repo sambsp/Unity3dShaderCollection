@@ -25,6 +25,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _brightness: 0.35
+    - _iterations: 20
+    - _rippleMaxFrequency: 2
+    - _rippleSpeed: 1.5
+    - _rippleStrenght: 0.4
+    - _rotationStep: 5
+    - _scale: 1.5
+    - _scaleStep: 1.2
+    - _uvAnimationSpeed: 0
     m_Colors: []
   m_BuildTextureStacks: []
